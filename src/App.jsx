@@ -5,11 +5,11 @@ import Log from "./components/Log";
 
 function deriveActivePlayer(gameTurns) {
   let currentPlayer = "X";
-      if (gameTurns.length > 0 && gameTurns[0].player == "X") {
-        currentPlayer = "O";
-      }
+  if (gameTurns.length > 0 && gameTurns[0].player == "X") {
+    currentPlayer = "O";
+  }
 
-      return currentPlayer;
+  return currentPlayer;
 }
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
   // const [activePlayer, setActivePlayer] = useState("X");
 
   const activePlayer = deriveActivePlayer(gameTurns);
-   
+
   function handleSelectSquare(rowIndex, colIndex) {
     // setActivePlayer((currentActivePlayer) =>
     //   currentActivePlayer === "X" ? "O" : "X"
@@ -33,9 +33,9 @@ function App() {
       const updatedTurns = [
         {
           square: { row: rowIndex, col: colIndex },
-          player: currentPlayer, // Avoid merging different states: thats why we are not directly using activePlayer
-          ...prevTurns,
-        },
+          player: currentPlayer,
+        }, // Avoid merging different states: thats why we are not directly using activePlayer
+        ...prevTurns,
       ];
 
       return updatedTurns;
